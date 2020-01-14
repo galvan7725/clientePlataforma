@@ -3,12 +3,18 @@ import {Link, withRouter} from 'react-router-dom';
 
 
 const NavBar = () =>{
+    
     return (
         <>
         <nav className="full-box dashboard-Navbar">
 			<ul className="full-box list-unstyled text-right">
+                { true && (
 				<li className="pull-left">
 					<a href="#!" className="btn-menu-dashboard"><i className="zmdi zmdi-more-vert"></i></a>
+				</li>
+                )}
+                <li className="pull-left">
+					<a href="#!" className="nav-link"><i className="zmdi zmdi-home">Inicio</i> </a>
 				</li>
 				<li>
 					<a href="#!" className="btn-Notifications-area">

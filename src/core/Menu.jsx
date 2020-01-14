@@ -3,7 +3,8 @@ import {Link, withRouter} from 'react-router-dom';
 
 const Menu = ()=>(
     <>
-        <section className="full-box cover dashboard-sideBar">
+        { true && (
+        <section id="prueba2" className="full-box cover dashboard-sideBar hide-sidebar">
 		<div className="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
 		<div className="full-box dashboard-sideBar-ct">
 			
@@ -75,7 +76,7 @@ const Menu = ()=>(
 			</ul>
 		</div>
 	</section>
-
+        )}
     
 
     

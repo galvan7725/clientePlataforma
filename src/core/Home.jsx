@@ -2,12 +2,14 @@ import React from 'react'
 import '../App.css';
 import NavBar from './NavBar';
 import SideBarDerecho from "./SideBarDerecho";
+import Box from './Box';
 
 
 const Home = () => (
     <>
         {/*seccion del contenido */}
-        <section className="full-box dashboard-contentPage">
+        <section id="prueba33" className="full-box dashboard-contentPage no-paddin-left">
+
 		{ /*aqui va el navbar */}
         <NavBar />
 		<div className="container-fluid">
@@ -65,8 +67,8 @@ const Home = () => (
 				</div>
 			</article>
 		</div>
-		
-	    </section>
+        </section>
+
     <SideBarDerecho />
     </>
 )
