@@ -2,8 +2,48 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import NavBar from '../core/NavBar';
 import SideBarDerecho from '../core/SideBarDerecho';
+import $ from 'jquery';
 
  class SignIn extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            nav:false
+        }
+    }
+
+    componentDidMount() {
+        var body=$('.dashboard-contentPage');
+        var sidebar=$('.dashboard-sideBar');
+        //body.addClass('no-paddin-left');
+        //sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
+
+        if(body.hasClass('no-paddin-left')){
+            console.log(true);
+            sidebar.removeClass('hide-sidebar').addClass('show-sidebar');
+            console.log(false);
+        }else{
+            sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
+
+
+        }
+        
+        $('.btn-menu-dashboard').on('click', function(){
+           
+            if(sidebar.css('pointer-events')=='none'){
+                body.removeClass('no-paddin-left');
+                sidebar.removeClass('hide-sidebar').addClass('show-sidebar');
+            }else{
+                body.addClass('no-paddin-left');
+                sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
+            }
+        });
+        
+    }
+
+    
+    
     
     render() {
         return (

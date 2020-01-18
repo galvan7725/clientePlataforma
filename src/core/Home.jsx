@@ -1,14 +1,53 @@
-import React from 'react'
+import React ,{Component} from 'react'
 import '../App.css';
 import NavBar from './NavBar';
 import SideBarDerecho from "./SideBarDerecho";
 import Box from './Box';
+import $ from 'jquery';
 
 
-const Home = () => (
+
+class  Home extends Component {
+
+    
+    componentDidMount() {
+        var body=$('.dashboard-contentPage');
+        var sidebar=$('.dashboard-sideBar');
+        //body.addClass('no-paddin-left');
+        //sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
+
+        if(body.hasClass('no-paddin-left')){
+            sidebar.removeClass('hide-sidebar').addClass('show-sidebar');
+
+        }else{
+            sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
+
+
+        }
+        
+        $('.btn-menu-dashboard').on('click', function(){
+           
+            if(sidebar.css('pointer-events')=='none'){
+                body.removeClass('no-paddin-left');
+                sidebar.removeClass('hide-sidebar').addClass('show-sidebar');
+            }else{
+                body.addClass('no-paddin-left');
+                sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
+            }
+        });
+        
+    }
+
+   
+    
+    render() {
+        return (
+             
+        
+    
     <>
         {/*seccion del contenido */}
-        <section id="prueba33" className="full-box dashboard-contentPage no-paddin-left">
+        <section id="prueba33" className="full-box dashboard-contentPage">
 
 		{ /*aqui va el navbar */}
         <NavBar />
@@ -72,5 +111,8 @@ const Home = () => (
     <SideBarDerecho />
     </>
 )
+        }
+    }
+    
 
 export default Home;

@@ -3,7 +3,14 @@ import {Link, withRouter} from 'react-router-dom';
 
 
 const NavBar = () =>{
-    
+    const styles ={
+        nav : {
+            marginLeft : "20px"
+        },
+        nav2: {
+            marginLeft : "30px"
+        }
+    };
     return (
         <>
         <nav className="full-box dashboard-Navbar">
@@ -14,7 +21,16 @@ const NavBar = () =>{
 				</li>
                 )}
                 <li className="pull-left">
-					<a href="#!" className="nav-link"><i className="zmdi zmdi-home">Inicio</i> </a>
+					<Link to="/" className="nav-link"><i className="zmdi zmdi-home">Inicio</i> </Link>
+                    
+				</li>
+                <li className="pull-left" style={styles.nav}>
+					<Link to="/signin" className="nav-link"><i className="zmdi zmdi-power">Acceso</i> </Link>
+                    
+				</li>
+                <li className="pull-left" style={styles.nav2}>
+					<a href="#!" className="nav-link"><i className="zmdi zmdi-account-add">Registro</i> </a>
+                    
 				</li>
 				<li>
 					<a href="#!" className="btn-Notifications-area">

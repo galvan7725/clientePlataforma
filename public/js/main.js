@@ -24,17 +24,7 @@ $(document).ready(function(){
 			window.location.href="index.html";
 		});
 	});
-	$('.btn-menu-dashboard').on('click', function(){
-		var body=$('.dashboard-contentPage');
-		var sidebar=$('.dashboard-sideBar');
-		if(sidebar.css('pointer-events')=='none'){
-			body.removeClass('no-paddin-left');
-			sidebar.removeClass('hide-sidebar').addClass('show-sidebar');
-		}else{
-			body.addClass('no-paddin-left');
-			sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
-		}
-	});
+	
 	$('.btn-Notifications-area').on('click', function(){
 		var NotificationsArea=$('.Notifications-area');
 		if(NotificationsArea.css('opacity')=="0"){

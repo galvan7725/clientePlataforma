@@ -1,7 +1,44 @@
 import React, { Component } from 'react'
 import {Link, withRouter} from 'react-router-dom';
+import $ from 'jquery';
 
-const Menu = ()=>(
+class Menu extends Component{
+    componentDidMount(){
+		
+        var body=$('.dashboard-contentPage');
+        var sidebar=$('.dashboard-sideBar');
+        //body.addClass('no-paddin-left');
+        //sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
+
+		//body.addClass('no-paddin-left');
+		/*
+        if(body.hasClass('no-paddin-left')){
+            
+            sidebar.removeClass('hide-sidebar').addClass('show-sidebar');
+
+        }else{
+            sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
+
+
+        }
+        
+        $('.btn-menu-dashboard').on('click', function(){
+           
+            if(sidebar.css('pointer-events')=='none'){
+                body.removeClass('no-paddin-left');
+                sidebar.removeClass('hide-sidebar').addClass('show-sidebar');
+            }else{
+                body.addClass('no-paddin-left');
+                sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
+            }
+        });
+        */
+    }
+render() {
+    return (
+         
+    
+
     <>
         { true && (
         <section id="prueba2" className="full-box cover dashboard-sideBar hide-sidebar">
@@ -82,6 +119,8 @@ const Menu = ()=>(
     
     </>
 )
+        }
+    }
 
 
 export default withRouter(Menu);
