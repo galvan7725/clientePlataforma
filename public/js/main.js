@@ -57,6 +57,9 @@ $(document).ready(function(){
 		$('#Dialog-Help').modal('show');
 	});
 });
+
+
+/*
 (function($){
     $(window).on("load",function(){
         $(".dashboard-sideBar-ct").mCustomScrollbar({
@@ -71,5 +74,8 @@ $(document).ready(function(){
         	autoHideScrollbar: true,
         	scrollButtons: {enable: true}
         });
-    });
+	});
+	
 })(jQuery);
+*/
+

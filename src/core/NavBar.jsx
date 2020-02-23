@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import {Link, withRouter} from 'react-router-dom';
+import {singout, isAuthenticated} from '../auth';
+import logo from '../logo.svg';
+
 
 
 const NavBar = () =>{
@@ -9,29 +12,47 @@ const NavBar = () =>{
         },
         nav2: {
             marginLeft : "30px"
-        }
-    };
+		},
+		font: {fontFamily : "'Indie Flower', cursive"}
+	};
+	
     return (
         <>
-        <nav className="full-box dashboard-Navbar">
+        <nav className="full-box dashboard-Navbar" style={styles.font}>
 			<ul className="full-box list-unstyled text-right">
-                { true && (
+                { isAuthenticated() ? (
+					<>
 				<li className="pull-left">
 					<a href="#!" className="btn-menu-dashboard"><i className="zmdi zmdi-more-vert"></i></a>
 				</li>
-                )}
-                <li className="pull-left">
-					<Link to="/" className="nav-link"><i className="zmdi zmdi-home">Inicio</i> </Link>
+				<li className="pull-left" style={styles.nav,{width:"auto"}}>
+					<span  >Red Social Master </span>
+				</li>
+				<li className="pull-left">
+					<img src={logo} alt="logo"/>
+				</li>
+				</>
+                ) : (
+					<>
+					<li className="pull-left">
+					<Link to="/" className="nav-link"><i className="zmdi zmdi-home"></i> </Link>
                     
 				</li>
                 <li className="pull-left" style={styles.nav}>
-					<Link to="/signin" className="nav-link"><i className="zmdi zmdi-power">Acceso</i> </Link>
+					<Link to="/signin" className="nav-link"><i className="zmdi zmdi-power"><span style={styles.font}>Acceso</span></i> </Link>
                     
 				</li>
                 <li className="pull-left" style={styles.nav2}>
-					<a href="#!" className="nav-link"><i className="zmdi zmdi-account-add">Registro</i> </a>
+					<Link  to="/signup" className="nav-link"><i className="zmdi zmdi-account-add"><span style={styles.font}>Registro</span></i> </Link>
                     
 				</li>
+					</>
+
+				)}
+
+                
+				{ isAuthenticated() ? (
+					<>
 				<li>
 					<a href="#!" className="btn-Notifications-area">
 						<i className="zmdi zmdi-notifications-none"></i>
@@ -48,6 +69,12 @@ const NavBar = () =>{
 						<i className="zmdi zmdi-help-outline"></i>
 					</a>
 				</li>
+				</>
+				) : (
+				<>
+				
+				</>
+				)}
 			</ul>
 		</nav>
         </>

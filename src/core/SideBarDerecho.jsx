@@ -7,6 +7,9 @@ import {Link, withRouter} from 'react-router-dom';
  class SideBarDerecho extends Component {
     render() {
         const props = this.props;
+        const styles = {
+            font: {fontFamily : "'Indie Flower', cursive"}
+        }
         return (
             <>
                 {/*  seccion de las notificaciones */}
@@ -23,7 +26,7 @@ import {Link, withRouter} from 'react-router-dom';
             </div>
             <div className="row-content">
                   <div className="least-content">1d</div>
-                  <h4 className="list-group-item-heading">Tu cita se acerca</h4>
+                  <h4 className="list-group-item-heading" style={styles.font}>Tu cita se acerca</h4>
                   <p className="list-group-item-text">Tienes una cita programada para mañana</p>
             </div>
           </div>
@@ -34,7 +37,7 @@ import {Link, withRouter} from 'react-router-dom';
             </div>
             <div className="row-content">
                   <div className="least-content">3d</div>
-                  <h4 className="list-group-item-heading">Solicitud aceptada</h4>
+                  <h4 className="list-group-item-heading" style={styles.font} >Solicitud aceptada</h4>
                   <p className="list-group-item-text">La solicitud para la aprobacion de tu cita fue aceptada</p>
             </div>
           </div>
@@ -45,7 +48,7 @@ import {Link, withRouter} from 'react-router-dom';
             </div>
             <div className="row-content">
                   <div className="least-content">7d</div>
-                  <h4 className="list-group-item-heading">Solicitud aceptada</h4>
+                  <h4 className="list-group-item-heading" style={styles.font}>Solicitud aceptada</h4>
                   <p className="list-group-item-text">La solicitud para la aprobacion de tu cita fue aceptada</p>
             </div>
         </div>
@@ -56,7 +59,7 @@ import {Link, withRouter} from 'react-router-dom';
             </div>
             <div className="row-content">
                   <div className="least-content">8d</div>
-                  <h4 className="list-group-item-heading">Solicitud aceptada</h4>
+                  <h4 className="list-group-item-heading" style={styles.font}>Solicitud aceptada</h4>
                   <p className="list-group-item-text">La solicitud para la aprobacion de tu cita fue aceptada</p>
             </div>
           </div>

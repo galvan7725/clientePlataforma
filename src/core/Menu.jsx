@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {Link, withRouter} from 'react-router-dom';
+import {singout, isAuthenticated} from '../auth';
 import $ from 'jquery';
+import logo from '../logo.svg';
 
 class Menu extends Component{
     componentDidMount(){
@@ -33,25 +35,42 @@ class Menu extends Component{
             }
         });
         */
+	   $(".dashboard-sideBar-ct").mCustomScrollbar({
+		theme:"light-thin",
+		scrollbarPosition: "inside",
+		autoHideScrollbar: true,
+		scrollButtons: {enable: false}
+	});
+	$(".dashboard-contentPage, .Notifications-body").mCustomScrollbar({
+		theme:"dark-thin",
+		scrollbarPosition: "inside",
+		autoHideScrollbar: true,
+		scrollButtons: {enable: false}
+	});
     }
 render() {
-    return (
-         
-    
 
+	const styles = {
+		font_size:{
+			fontSize:"20px"
+		}
+	}
+
+
+    return (
     <>
-        { true && (
+        { isAuthenticated() && (
         <section id="prueba2" className="full-box cover dashboard-sideBar hide-sidebar">
 		<div className="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
 		<div className="full-box dashboard-sideBar-ct">
 			
 			<div className="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
-				Hospital Santiago <i className="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+				MENU <i className="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
 			</div>
 			<div className="full-box dashboard-sideBar-UserInfo">
 				<figure className="full-box">
-					<img src="./assets/img/us1.png" alt="UserIcon"/>
-					<figcaption className="text-center text-titles">Nombre de usuario</figcaption>
+					<img src={`${process.env.REACT_APP_API_URL}/user/photo/${isAuthenticated().user._id}`} onError={i =>(i.target.src = `${logo}`)} alt="UserIcon"/>
+					<figcaption className="text-center " style={styles.font_size}>{isAuthenticated().user.name}</figcaption>
 				</figure>
 				<ul className="full-box list-unstyled text-center">
 					<li>
