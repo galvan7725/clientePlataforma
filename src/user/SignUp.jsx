@@ -57,7 +57,8 @@ class SignUp extends Component {
         const user = {
             name,
             email,
-            password
+            password,
+            role:'user'
         };
         if(name == "" || email == "" || password ==""){
             //error
@@ -145,18 +146,18 @@ class SignUp extends Component {
                     <p className="text-center  text-uppercase">Registrate en nuestra plataforma</p>
                     <div className="form-group label-floating">
                         <label className="control-label" >Nombre</label>
-                        <input onChange={this.handleChange("name")} value={name} className="form-control" id="UserEmail" type="email" />
+                        <input onChange={this.handleChange("name")} value={name} className="form-control" id="UserEmail" type="text" />
                         <p className="help-block">Escriba su nombre</p>
                     </div>
                     <div className="form-group label-floating">
                         <label className="control-label" >E-mail</label>
                         <input onChange={this.handleChange("email")} value={email} className="form-control"  type="email" />
-                        <p className="help-block">Escribe tú contraseña</p>
+                        <p className="help-block">Escribe tú email</p>
                     </div>
                     <div className="form-group label-floating">
-                        <label className="control-label" >Repite la contraseña</label>
+                        <label className="control-label" >Contraseña</label>
                         <input  onChange={this.handleChange("password")} value={password} className="form-control"  type="password" />
-                        <p className="help-block">Repite tú contraseña</p>
+                        <p className="help-block">Escribe tú contraseña</p>
                     </div>
                     <div className="form-group text-center">
                         <button onClick={this.clickSubmit}  type="submit" value="Aceptar" className="btn btn-raised btn-primary" >Registrarse</button>
