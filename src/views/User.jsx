@@ -1,16 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import NavBar from '../core/NavBar';
 import SideBarDerecho from "../core/SideBarDerecho";
 import Menu from "../core/Menu";
 import $ from 'jquery';
-import Posts from '../posts/Posts';
 
-
-
- class Principal extends Component {
-
-
-
+class User extends Component {
 
     componentDidMount = () =>{
         var body=$('.dashboard-contentPage');
@@ -51,10 +45,11 @@ import Posts from '../posts/Posts';
 
     }
 
+
+
     render() {
-        const styles = {
-			font: {fontFamily : "'Indie Flower', cursive"}
-		}
+
+
 
         return (
             <>
@@ -63,9 +58,8 @@ import Posts from '../posts/Posts';
                           <NavBar />
 
                           <div className="container-fluid">
-                              <div className="row" style={styles.div}>
-                               
-                                    
+                              <div className="row">
+                                <h1>Perfil del usuario</h1>                                    
                               </div>
                             
                           </div>
@@ -76,5 +70,4 @@ import Posts from '../posts/Posts';
     }
 }
 
-
-export default Principal;
+export default User;

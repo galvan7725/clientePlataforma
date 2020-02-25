@@ -3,6 +3,9 @@ import {Link, withRouter} from 'react-router-dom';
 import {singout, isAuthenticated} from '../auth';
 import $ from 'jquery';
 import logo from '../logo.svg';
+import Tippy from '@tippy.js/react'
+import '../App.css';
+
 
 class Menu extends Component{
     componentDidMount(){
@@ -53,6 +56,9 @@ render() {
 	const styles = {
 		font_size:{
 			fontSize:"20px"
+		},
+		font: {
+			fontFamily: "'Indie Flower', cursive"
 		}
 	}
 
@@ -68,27 +74,46 @@ render() {
 				MENU <i className="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
 			</div>
 			<div className="full-box dashboard-sideBar-UserInfo">
-				<figure className="full-box">
+				<figure className="full-box text-center">
 					<img src={`${process.env.REACT_APP_API_URL}/user/photo/${isAuthenticated().user._id}`} onError={i =>(i.target.src = `${logo}`)} alt="UserIcon"/>
 					<figcaption className="text-center " style={styles.font_size}>{isAuthenticated().user.name}</figcaption>
+					<h4 style={styles.font}>{isAuthenticated().user.role}</h4>
 				</figure>
 				<ul className="full-box list-unstyled text-center">
-					<li>
+					{isAuthenticated().user.role == 'admin' || isAuthenticated().user.role == 'teacher'  ? (<>
+						
+					</>):(<>
+						<li>
 						<a href="#!">
-							<i className="zmdi zmdi-settings"></i>
+							<i className="zmdi zmdi-alert-triangle"></i>
 						</a>
-					</li>
+						</li>
+					</>)}
+
+									<li>
+									<Tippy className="popup" content="Ajustes">
+
+									<Link to={`/Profile/${isAuthenticated().user._id}`} >
+										<i className="zmdi zmdi-settings"></i>
+									</Link>
+									</Tippy>
+									</li>
+							
+							
+					
 					<li>
-						<a href="#!" className="btn-exit-system">
-							<i className="zmdi zmdi-power"></i>
-						</a>
+						<Tippy  content="Salir">
+							<a href="#!" className="btn-exit-system">
+								<i className="zmdi zmdi-power"></i>
+							</a>
+						</Tippy>						
 					</li>
 				</ul>
 			</div>
 			<ul className="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
 					<a href="home.html">
-						<i className="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Inicio
+						<i className="zmdi zmdi-home"></i> Inicio
 					</a>
 				</li>
 				<li>

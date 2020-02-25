@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Link, withRouter} from 'react-router-dom';
 import {singout, isAuthenticated} from '../auth';
 import logo from '../logo.svg';
-
+import '../App.css';
 
 
 const NavBar = () =>{
@@ -26,7 +26,7 @@ const NavBar = () =>{
 					<a href="#!" className="btn-menu-dashboard"><i className="zmdi zmdi-more-vert"></i></a>
 				</li>
 				<li className="pull-left" style={styles.nav,{width:"auto"}}>
-					<span  >Red Social Master </span>
+					<span  >Plataforma Master </span>
 				</li>
 				<li className="pull-left">
 					<img src={logo} alt="logo"/>
